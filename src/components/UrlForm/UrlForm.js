@@ -19,6 +19,7 @@ const UrlForm = ({updateUrls}) => {
     return (
       <form>
         <input
+          data-cy='title-input'
           type='text'
           placeholder='Title...'
           name='title'
@@ -27,6 +28,7 @@ const UrlForm = ({updateUrls}) => {
         />
 
         <input
+          data-cy='url-to-shorten'
           type='text'
           placeholder='URL to Shorten...'
           name='title'

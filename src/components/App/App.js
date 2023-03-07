@@ -40,7 +40,7 @@ const App = () => {
       <main className="App">
         {(loading) && <h1>Loading...</h1>}
         <header>
-          <h1>URL Shortener</h1>
+          <h1 data-cy='header'>URL Shortener</h1>
           <UrlForm updateUrls={updateUrls}/>
         </header>
 
