@@ -20,7 +20,7 @@ const App = () => {
         throw new Error(response.status)
       }
       const urls = await response.json()
-      setUrls(urls)
+      setUrls(urls.urls)
       setLoading(false)
     } catch(error) {
       setError(error)
@@ -29,7 +29,7 @@ const App = () => {
 
   useEffect(() => {
     getUrls()
-  },[urls])
+  },[])
 
     return (
       <main className="App">
