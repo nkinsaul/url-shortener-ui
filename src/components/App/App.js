@@ -1,9 +1,7 @@
-import React, { Component, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './App.css';
-import { getUrls } from '../../apiCalls';
 import UrlContainer from '../UrlContainer/UrlContainer';
 import UrlForm from '../UrlForm/UrlForm';
-
 
 const App = () => {
   const [urls, setUrls] = useState([])
@@ -29,7 +27,7 @@ const App = () => {
 
   useEffect(() => {
     getUrls()
-  },[])
+  },[urls])
 
     return (
       <main className="App">
