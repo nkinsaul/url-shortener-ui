@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { postUrl, updateUrls } from '../../apiCalls';
 
 const UrlForm = ({updateUrls}) => {
   const [title, setTitle] = useState('')

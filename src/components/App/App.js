@@ -27,7 +27,6 @@ const App = () => {
   }
 
   useEffect(() => {
-    console.log('fetch')
     getUrls()
   },[])
 
