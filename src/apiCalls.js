@@ -21,3 +21,15 @@ export const postUrl = (longUrl, title) => {
   })
   .catch(error => error)
 }
+
+export const updateUrls = () => {
+  return fetch('http://localhost:3001/api/v1/urls')
+  .then(response => {
+    if(response.ok) {
+      return response.json()
+    } else {
+      throw new Error(response.status)
+    }
+  })
+  .catch(error => error)
+}

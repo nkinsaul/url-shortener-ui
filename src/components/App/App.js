@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './App.css';
 import UrlContainer from '../UrlContainer/UrlContainer';
 import UrlForm from '../UrlForm/UrlForm';
+import { postUrl } from '../../apiCalls';
 
 const App = () => {
   const [urls, setUrls] = useState([])
@@ -26,15 +27,21 @@ const App = () => {
   }
 
   useEffect(() => {
+    console.log('fetch')
     getUrls()
-  },[urls])
+  },[])
+
+  const updateUrls = (urlToShorten, title) => {
+    postUrl(urlToShorten, title)
+    getUrls()
+  }
 
     return (
       <main className="App">
         {(loading) && <h1>Loading...</h1>}
         <header>
           <h1>URL Shortener</h1>
-          <UrlForm />
+          <UrlForm updateUrls={updateUrls}/>
         </header>
 
         <UrlContainer urls={urls}/>

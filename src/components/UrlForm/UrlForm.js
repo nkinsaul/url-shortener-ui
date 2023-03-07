@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
-import { postUrl } from '../../apiCalls';
+import { postUrl, updateUrls } from '../../apiCalls';
 
-const UrlForm = () => {
+const UrlForm = ({updateUrls}) => {
   const [title, setTitle] = useState('')
   const [urlToShorten, setUrlToShorten] = useState('')
 
   const handleSubmit = e => {
     e.preventDefault();
-    postUrl(urlToShorten, title)
     clearInputs();
+    updateUrls(urlToShorten, title);
   }
 
   const clearInputs = () => {
@@ -17,7 +17,7 @@ const UrlForm = () => {
   }
 
     return (
-      <form onSubmit={() => handleSubmit()}>
+      <form>
         <input
           type='text'
           placeholder='Title...'
@@ -37,10 +37,6 @@ const UrlForm = () => {
         <button onClick={e => handleSubmit(e)}>
           Shorten Please!
         </button>
-
-        {/* <input 
-          type="submit" value="Shorten please!"
-        /> */}
 
       </form>
     )
