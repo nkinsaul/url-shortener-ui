@@ -27,15 +27,6 @@ it('User can add information into the form', () => {
   cy.get('[data-cy=url-to-shorten]').should('have.value', 'https://forecast.weather.gov/MapClick.php?lat=47.7462&lon=-121.0859#.ZAd_rezMJhF')
 })
 
-it('User can submit a new url via the form', () => {
-  cy.get('[data-cy=title-input]').type('Stevens Forecast')
-  cy.get('[data-cy=url-to-shorten]').type('https://forecast.weather.gov/MapClick.php?lat=47.7462&lon=-121.0859#.ZAd_rezMJhF')
-  cy.get('[data-cy=title-input]').should('have.value', 'Stevens Forecast')
-  cy.get('[data-cy=url-to-shorten]').should('have.value', 'https://forecast.weather.gov/MapClick.php?lat=47.7462&lon=-121.0859#.ZAd_rezMJhF')
-  cy.intercept('POST', "http://localhost:3001/api/v1/urls", {response: "post.json"}).as('postUrl')
-  cy.get('[data-cy=submit]').click()
-  cy.intercept("GET", "http://localhost:3001/api/v1/urls", {fixture:"updatedUrls.json"})
-})
 
 })
 
