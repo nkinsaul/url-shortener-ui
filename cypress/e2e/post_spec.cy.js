@@ -14,5 +14,9 @@ describe('User dashboard flows', () => {
   it('User should see updated urls', () => {
     cy.intercept("GET", "http://localhost:3001/api/v1/urls", {fixture:"updatedUrls.json"})
     cy.visit('http://localhost:3000/')
+    cy.get('[data-cy=2]').should('be.visible')
+    cy.get('[data-cy=2-title]').should('contain', 'Stevens Forecast')
+    cy.get('[data-cy=2-short-url]').should('contain', 'http://localhost:3001/useshorturl/2')
+    cy.get('[data-cy=2-long-url]').should('contain', 'https://forecast.weather.gov/MapClick.php?lat=47.7462&lon=-121.0859#.ZAdyg-zMJhF')
   })
 })
